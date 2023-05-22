@@ -38,6 +38,7 @@
         main img {
             display: block;
             margin: auto;
+            cursor: pointer; /* добавляем курсор pointer для изображения */
         }
 
         main li {
@@ -49,24 +50,82 @@
             text-decoration: underline;
         }
 
+        .like-button {
+            display: block;
+            margin: 20px auto auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e90ff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .like-button:hover {
+            background-color: #187bcd;
+        }
+
+        .clear-cookies-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #1e90ff;
+            color: #fff;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .clear-cookies-button:hover {
+            background-color: #fff;
+            color: #1e90ff;
+        }
+
         footer {
             background-color: #1e90ff;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
+
+        .top-right {
+            position: absolute;
+            top: 25px;
+            right: 15px;
+        }
+
+        .top-right button {
+            margin-left: 11px;
+            background-color: antiquewhite;
+            color: blue;
+            padding: 15px 25px;
+            border: black;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .top-right button:hover {
+            background-color: #187bcd;
+        }
     </style>
 </head>
 <body>
 <header>
     <h1>Welcome to the page about me</h1>
+    <div class="top-right">
+        <button onclick="location.href='https://vk.com/menshikoffnikolai'">VK</button>
+        <button onclick="location.href='mailto:kolya.menshikov.03@inbox.ru'">Mail</button>
+    </div>
 </header>
 <main>
     <h2>Menshikov Nikolai Sergeevich</h2>
-    <img src="IMG_8587%20Medium.jpeg" alt="Photo of Menshikov Nikolai Sergeevich">
+    <img id="myImage" src="IMG_8587%20Medium.jpeg" alt="Photo of Menshikov Nikolai Sergeevich" onclick="zoom()">
+    <h2>Likes: <span id="like-count">0</span></h2>
+    <button class="like-button" onclick="like()">
+        Like
+    </button>
     <p>I am 19 years old, born in Voronezh. I am a first year student at the Faculty of Computer Science at Voronezh
-        State
-        University.</p>
+        State University.</p>
     <h3>Interests and Hobbies</h3>
     <ul>
         <li>Hockey</li>
@@ -79,13 +138,15 @@
         <li>Received an 4 in Introduction to programming</li>
     </ul>
     <p>Basically, I spend all my time studying. To take a break from mental work, I go in for sports.</p>
-    <h2>Contacts</h2>
-    <p>Mail: <a href="mailto:kolya.menshikov.03@inbox.ru">kolya.menshikov.03@inbox.ru</a></p>
-    <p>VKontakte: <a href="https://vk.com/menshikoffnikolai">menshikoffnikolai</a></p>
-    <h2><p>Description: Page about me with using HTML</p></h2>
+    <button class="clear-cookies-button" onclick="clearAllCookies()">
+        Clear Cookies
+    </button>
+    <h2><p>Description: Page about me with using HTML, CSS and JavaScript</p></h2>
 </main>
 <footer>
     <h1>Thanks for visiting!</h1>
 </footer>
+<script src="Cookies.js"></script>
+<script src="Actions.js"></script>
 </body>
 </html>
