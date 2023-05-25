@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <title>Page about me</title>
     <style>
+        .social-button {
+            background-color: antiquewhite;
+            color: blue;
+            padding: 15px 25px;
+            border: black;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-button:hover {
+            background-color: #187bcd;
+            transform: translateX(10px);
+        }
+
+        .like-button {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .like-button:hover {
+            background-color: #187bcd;
+            transform: translateX(10px);
+        }
+
         body {
             background-color: #fff;
             color: #2b1a0e;
@@ -41,6 +71,10 @@
             cursor: pointer; /* добавляем курсор pointer для изображения */
         }
 
+        main img:hover {
+            transform: scale(1.01); /* Увеличение размера при наведении */
+        }
+
         main li {
             margin-bottom: 10px;
         }
@@ -74,11 +108,13 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
+            transition: transform 0.3s ease;
+
         }
 
         .clear-cookies-button:hover {
-            background-color: #fff;
-            color: #1e90ff;
+            background-color: #187bcd;
+            transform: translateX(10px);
         }
 
         footer {
@@ -107,14 +143,62 @@
         .top-right button:hover {
             background-color: #187bcd;
         }
+
+        .registration-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .registration-form h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #187bcd;
+        }
+
     </style>
 </head>
 <body>
 <header>
     <h1>Welcome to the page about me</h1>
     <div class="top-right">
-        <button onclick="location.href='https://vk.com/menshikoffnikolai'">VK</button>
-        <button onclick="location.href='mailto:kolya.menshikov.03@inbox.ru'">Mail</button>
+        <button class="social-button" onclick="location.href='https://vk.com/menshikoffnikolai'">VK</button>
+        <button class="social-button" onclick="location.href='mailto:kolya.menshikov.03@inbox.ru'">Mail</button>
+        <button class="social-button" onclick="location.href = 'users.php'">Users</button>
     </div>
 </header>
 <main>
@@ -143,6 +227,26 @@
     </button>
     <h2><p>Description: Page about me with using HTML, CSS and JavaScript</p></h2>
 </main>
+<h3>
+    <div style="text-align: center;">Registration:</div>
+</h3>
+<form class="registration-form" method="POST" action="register.php" onsubmit="submitRegistrationForm(event)">
+    <div class="form-group">
+        <label for="id">ID:</label>
+        <input type="text" name="id" id="id" required>
+    </div>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Register">
+    </div>
+</form>
 <footer>
     <h1>Thanks for visiting!</h1>
 </footer>

@@ -13,7 +13,7 @@ function saveLikeCount(count) {
 }
 
 function clearAllCookies() {
-    document.cookie.split(";").forEach(function(c) {
+    document.cookie.split(";").forEach(function (c) {
         document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
     });
     // document.getElementById("like-count").textContent = "0";
@@ -21,7 +21,7 @@ function clearAllCookies() {
 
 saveVisitTime();
 
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
     saveLastViewedPosition();
 });
 

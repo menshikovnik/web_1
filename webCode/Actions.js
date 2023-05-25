@@ -9,6 +9,7 @@ if (lastVisit) {
     const currentDateTime = new Date().toString();
     setCookie("lastVisit", currentDateTime, 365);
 }
+
 function like() {
     let count = parseInt(document.getElementById("like-count").textContent);
     count++;
@@ -16,12 +17,14 @@ function like() {
     saveLikeCount(count);
     setCookie('likes', count, 1);
 }
-window.onload = function() {
+
+window.onload = function () {
     let likes = getCookie("likes");
     if (likes) {
         document.getElementById("like-count").textContent = likes;
     }
 };
+
 function zoom() {
     const img = document.getElementById("myImage");
     if (img.style.width === "100%") {
